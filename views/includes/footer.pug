@@ -1,0 +1,14 @@
+footer
+  nav.footerNav
+    ul.footerNavUl
+      a(href="https://facebook.com").footerNavA
+        li.footerNavItem
+          i(class="fab fa-facebook-f")  - Facebook
+      a(href="https://instagram.com").footerNavA
+        li.footerNavItem
+          i(class="fab fa-instagram")  - Instagram
+
+  a(href="/login" id="login") Webmaster
+  if loggedIn
+    a(href="/dashboard") Dashboard
+    a(href="/logout") logout

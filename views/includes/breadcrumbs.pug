@@ -1,0 +1,20 @@
+nav.breadCrumbsNav
+  ul.breadCrumbsUl
+    i(class="far fa-compass").breadCrumbsItemA
+    if threePageUp
+        a(href=`${threePageUpSrc}`).breadCrumbsItemA
+          h4.breadCrumbsItem #{threePageUp}
+        i(class="fas fa-angle-right").breadCrumbsArrow
+    if twoPageUp
+      a(href=`${twoPageUpSrc}`).breadCrumbsItemA
+        h4.breadCrumbsItem #{twoPageUp}
+      i(class="fas fa-angle-right").breadCrumbsArrow
+    if pageUp
+      a(href=`${pageUpSrc}`).breadCrumbsItemA
+        h4.breadCrumbsItem #{pageUp}
+      i(class="fas fa-angle-right").breadCrumbsArrow
+    h4.breadCrumbsItemA #{title}
+
+
+
+      

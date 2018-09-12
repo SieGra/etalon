@@ -1,0 +1,13 @@
+extends layout
+block content
+    h2 Dashboard
+    section
+        h2 Notes
+        p Make new notes with the form.
+        form
+            label(for="header") Header:
+            input(type="text" name="header" placeholder="header")
+            label(for="imagesource") Image Source:
+            input(type="text" name="imagesource" placeholder="Image source")
+            label(for="articlebody") Article body:
+            textarea(name="articlebody", cols="30", rows="10" placeholder="articlebody goes here")
