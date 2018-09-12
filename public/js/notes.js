@@ -1,7 +1,15 @@
 // NOTES
 !(function(){
+
     if(document.title === "Etalon - Notes"){
 
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/notes');
+        xhr.send();
+        xhr.onloadend = function  () {
+
+            console.log(xhr.response)
+        };
 
         const parent = document.getElementById('articles');
         const figure = document.createElement('figure');

@@ -3,7 +3,8 @@
 const express = require('express'),
 mongoose = require('mongoose'),
 router = express.Router(),
-User = require('../models/user');
+User = require('../models/user'),
+Blogpost = require('../models/blogpost');
 
 router.get('/', (req, res, next)=>{
     let pageData = {
@@ -27,6 +28,19 @@ router.get('/notes', (req, res, next)=>{
         pageData.loggedIn = true;
     }
     return res.render('notes', pageData);
+});
+
+router.post('/notes', (req, res, next)=>{
+    console.log('notes post')
+    let arr = [];
+    Blogpost.find({}, (err, blogposts) => {
+        if (err) return next(err);
+        console.log(blogposts)
+        arr.push(blogposts);
+    }).then(()=>{
+        res.json(arr);
+    })
+
 });
 
 router.get('/createadmin', (req, res, next) => {
@@ -124,6 +138,23 @@ router.get('/dashboard', (req, res, next)=>{
     }
 });
 
+router.post('/dashboard', (req, res, next)=>{
+    if(req.body.title && req.body.articlebody && req.body.imagesource) {
+        let blogData = {
+            title: req.body.title,
+            body: req.body.articlebody,
+            imagesource: req.body.imagesource
+        }
+        Blogpost.create(blogData, (error, user)=>{
+            if ( error ) {
+                return next(error);
+            } else {
+                res.redirect('/notes');
+            }
+        })
+    }
+
+})
 
 
 module.exports = router;

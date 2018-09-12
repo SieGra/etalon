@@ -4,10 +4,11 @@ block content
     section
         h2 Notes
         p Make new notes with the form.
-        form
-            label(for="header") Header:
-            input(type="text" name="header" placeholder="header")
+        form(action="/dashboard" method="POST")
+            label(for="title") Title:
+            input(type="text" name="title" placeholder="title")
             label(for="imagesource") Image Source:
             input(type="text" name="imagesource" placeholder="Image source")
             label(for="articlebody") Article body:
             textarea(name="articlebody", cols="30", rows="10" placeholder="articlebody goes here")
+            button(type="submit") Submit article
