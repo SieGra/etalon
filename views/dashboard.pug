@@ -7,8 +7,10 @@ block content
         form(action="/dashboard" method="POST")
             label(for="title") Title:
             input(type="text" name="title" placeholder="title")
-            label(for="imagesource") Image Source:
-            input(type="text" name="imagesource" placeholder="Image source")
+            label(for="imagesrc") Image Source:
+            input(type="text" name="imagesrc" placeholder="Image source")
+            label(for="imagealt") Image alt text:
+            input(type="text" name="imagealt" placeholder="image alt text")
             label(for="articlebody") Article body:
             textarea(name="articlebody", cols="30", rows="10" placeholder="articlebody goes here")
             button(type="submit") Submit article

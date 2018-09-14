@@ -2,12 +2,12 @@ extends layout
 block content
   h2 My notes
   section#articles
-    figure.notesFigure
-      article.articleContainerOuter
-        article.container
-          h3.notesFigureH3 Title goes here
-          h5.notesFigureH5 date and time
-          h4 description loremIpsum lorem lard coffe maker jokes aside politician and crooks ....
-          a(href="/articleNumber234" class="notesA") Read more..
-
-        img(src="img/susan-yin-647448-unsplash.jpg", alt="").notesFigureImg
+    each obj in blogposts
+      figure.notesFigure
+        article.articleContainerOuter
+          article.articleContainer
+            h3.notesFigureH3= obj.title
+            h5.notesFigureH5= `Blogpost #${obj.blognumber}`
+            h4.notesFigureH4= `${obj.bodyPreview}...`
+            a(href=`/article/${obj.blognumber}`) < Read more >
+          img(src=`${obj.imagesrc}` alt=`${obj.imagealt}`).notesFigureImg
