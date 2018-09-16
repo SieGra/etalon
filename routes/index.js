@@ -61,7 +61,6 @@ router.get('/notes', (req, res, next) => {
        });
 
        blogListPromise.then(function(){
-           console.log(arr);
             pageData.blogposts = arr;
            return res.render('notes', pageData);
 
@@ -103,11 +102,11 @@ router.get('/createadmin', (req, res, next) => {
         pageUp: 'Home',
         pageUpSrc: '/'
     }
-    // if(req.session.userId) {
+    if(req.session.userId) {
     return res.render('createadmin', pageData);
-    // } else {
-    //     return res.redirect('/login');
-    // }
+    } else {
+        return res.redirect('/login');
+    }
 
 })
 
@@ -176,24 +175,23 @@ router.get('/logout', (req, res, next) => {
 })
 
 router.get('/dashboard', (req, res, next) => {
-    // if(req.session.userId){
+    if(req.session.userId){
     let pageData = {
         title: 'Dashboard',
-        pageUp: 'home',
+        pageUp: 'Home',
         pageUpSrc: '/'
     }
-    // if(req.session.userId){
-    // pageData.loggedIn = true;
+    if(req.session.userId){
+    pageData.loggedIn = true;
     return res.render('dashboard', pageData);
-    // }
-    // } else {
-    // return res.redirect('/');
-    // }
+    }
+    } else {
+    return res.redirect('/');
+    }
 });
 
 router.post('/dashboard', (req, res, next) => {
     if (req.body.title && req.body.articlebody && req.body.imagesrc && req.body.imagealt) {
-        console.log(req.body)
         let blogData = {
             title: req.body.title,
             body: req.body.articlebody,
@@ -202,7 +200,6 @@ router.post('/dashboard', (req, res, next) => {
         }
         
         Blogpost.create(blogData, (error, user) => {
-            console.log('yay')
             if (error) {
                 return next(error);
             } else {

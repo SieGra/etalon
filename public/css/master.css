@@ -116,6 +116,8 @@ section {
 
 
 figure {
+    display: flex;
+    flex-direction: column;
     width: 90%;
     padding: 5%;
     margin: 0;
@@ -158,8 +160,11 @@ footer {
     color: #b13331;
     text-shadow: 3px 3px 3px black;
     font-size: 4rem;
-    margin-right: 1vw;
+    margin-right: .2vw;
+}
 
+.mainH1{
+    text-shadow: #f2f0ec 2px 2px inset;
 }
 
 .mainNav {
@@ -194,9 +199,29 @@ footer {
     margin: 0;
 }
 
+.imgFigure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(57, 54, 62,.1);
+}
+
+
+
 .figImg {
     width: 100%;
 }
+
+.imgFigure blockquote {
+    font-weight: bold;
+    line-height: 30px;
+    width: 70%;
+}
+
+.imgFigure figcaption {
+    width: 100%;
+}
+
 
 .notesFigure {
     display: flex;
@@ -204,6 +229,7 @@ footer {
     padding: 1vw;
     width: 100%;
 }
+
 
 .notesFigureH3,
 .notesFigureH5 {
@@ -226,9 +252,17 @@ footer {
 
 
 
+
+
 /* ID selectors */
 #login {
     font-size: .4rem;
+}
+
+#notesBlogTitle {
+    color: #39363e;
+    text-decoration: underline;
+    width: auto;
 }
 
 /* pseudoselectors */
@@ -247,6 +281,16 @@ a:visited {
     color: #ae794b;
     text-decoration: none;
 }
+
+#notesBlogTitle:hover {
+    color: #ae794b;
+    text-decoration: underline dashed;
+}
+
+
+
+
+
 
 .mainNavItem,
 .breadCrumbsItem {
@@ -300,7 +344,7 @@ blockquote::after {
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
-        padding: 0 2vw;
+        padding: 0 10vw;
 
     }
 
@@ -311,6 +355,8 @@ blockquote::after {
 
     .mainH1 {
         width: 30%;
+        padding: 0;
+        margin: 0;
         margin-right: auto;
     }
 

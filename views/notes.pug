@@ -6,8 +6,9 @@ block content
       figure.notesFigure
         article.articleContainerOuter
           article.articleContainer
-            h3.notesFigureH3= obj.title
-            h5.notesFigureH5= `Blogpost #${obj.blognumber}`
+            a(href=`/article/${obj.blognumber}`)#notesBlogTitle
+              h3.notesFigureH3= obj.title
+              h5.notesFigureH5= `Blogpost #${obj.blognumber}`
             h4.notesFigureH4= `${obj.bodyPreview}...`
             a(href=`/article/${obj.blognumber}`) < Read more >
           img(src=`${obj.imagesrc}` alt=`${obj.imagealt}`).notesFigureImg

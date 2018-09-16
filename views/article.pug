@@ -1,6 +1,11 @@
 extends layout
 block content
-    h1= object.title
-    h4= `Blog entry #${object.blognumber}`
-    p= object.body
-    img(src=`/${object.imagesrc}` alt=`${object.imagealt}`)
+    section.introSection
+        h1= object.title
+        h4= `Blog entry #${object.blognumber}`
+        p= object.body
+        figure.imgFigure
+            img(src=`/${object.imagesrc}` alt=`${object.imagealt}`).figImg
+            blockquote Lorem ipsum
+            figcaption
+                a(href="#") ipsum foo bar baz
